@@ -1,0 +1,94 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "repsnav",
+  "title": "RepsNav",
+  "description": "Navigate Local Reposistory",
+  "icon": "java.png",
+  "author": "duy_luong",
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "repos",
+      "title": "Search local Reposistory",
+      "description": "Search and open local reposistory",
+      "mode": "view"
+    },
+    {
+      "name": "bamboo",
+      "title": "Bamboo",
+      "description": "Search Confluence builds",
+      "mode": "view",
+      "icon": "bamboo.png"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "rootSourceFolder",
+      "title": "Root Source Folder Path",
+      "description": "A absolute folder path contains all workspaces/projects",
+      "type": "directory",
+      "required": true,
+      "placeholder": "/Uers/your-name/sources/",
+      "default": ""
+    },
+    {
+      "name": "vsCode",
+      "type": "appPicker",
+      "required": true,
+      "title": "Open NODE projects with, shortcut: ⏎",
+      "description": "Open NODE projects with (to exclude select -)",
+      "default": "Visual Studio Code"
+    },
+    {
+      "name": "idea",
+      "type": "appPicker",
+      "required": true,
+      "title": "Open Java projects with, shortcut: ⏎",
+      "description": "Open Java projects with (to exclude select -)",
+      "default": "IntellJ IDEA Ultimate"
+    },
+    {
+      "name": "bambooBaseUrl",
+      "title": "Base URL for Bamboo",
+      "description": "Base URL for Bamboo",
+      "type": "textfield",
+      "required": true,
+      "placeholder": "https://server-syd-bamboo.internal.atlassian.com",
+      "default": "https://server-syd-bamboo.internal.atlassian.com"
+    },
+    {
+      "name": "bambooAccessKey",
+      "title": "Access Key for Bamboo",
+      "description": "Access Key which used to login into Bamboo",
+      "type": "textfield",
+      "required": true,
+      "placeholder": "check out https://server-syd-bamboo.internal.atlassian.com/profile/userAccessTokens.action",
+      "default": ""
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.80.0",
+    "@raycast/utils": "^1.15.0",
+    "lodash": "^4.17.21",
+    "run-applescript": "^6.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.6",
+    "@types/node": "20.8.10",
+    "@types/react": "18.3.3",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
